@@ -9,7 +9,7 @@ const COURSES = [
     },
     {
         date: "2024",
-        title: "Arquitectura hexagonal",
+        title: "Arquitectura Hexagonal",
     },
     {
         date: "2023",
@@ -17,19 +17,31 @@ const COURSES = [
     },
     {
         date: "2022",
-        title: "Arquitectura Software Moderna: DDD, Eventos, Microservicios"
+        title: "DDD"
     },
     {
         date: "2022",
-        title: "Principios SOLID con ejemplos"
+        title: " Microservicios"
     },
     {
         date: "2022",
-        title: "Principios SOLID y clean code",
+        title: "Eventos"
     },
     {
         date: "2022",
-        title: "PHP, SQL, POO, MVC, Laravel, Symfony, Wordpress",
+        title: "Principios SOLID",
+    },
+    {
+        date: "2022",
+        title: "Laravel",
+    },
+    {
+        date: "2022",
+        title: "MVC",
+    },
+    {
+        date: "2022",
+        title: "SQL",
     },
     {
         date: "2021",
@@ -41,7 +53,7 @@ const COURSES = [
     },
     {
         date: "2021",
-        title: "Creación de servidores locales",
+        title: "Creación de servidores",
     },
     {
         date: "2020",
@@ -63,10 +75,6 @@ const COURSES = [
         date: "2019",
         title: "Introducción analítica web"
     },
-    {
-        date: "2019",
-        title: "Desarrollo de Aplicaciones Web",
-    }
 ]
 
 export {COURSES};
