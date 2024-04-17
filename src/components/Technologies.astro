@@ -1,4 +1,5 @@
 ---
+import CodeIcon from './icons/Code.astro';
 import AstroIcon from '../components/icons/Astro.astro';
 import GitIcon from '../components/icons/Git.astro';
 import MysqlIcon from '../components/icons/Mysql.astro';
@@ -8,10 +9,18 @@ import TailwindIcon from '../components/icons/Tailwind.astro';
 import VuejsIcon from '../components/icons/Vuejs.astro';
 
 ---
-<PhpIcon class="w-50 h-50"></PhpIcon>
-<SymfonyIcon class="w-50 h-50"></SymfonyIcon>
-<MysqlIcon class="w-50 h-50"></MysqlIcon>
-<VuejsIcon class="w-50 h-50"></VuejsIcon>
-<AstroIcon class="w-50 h-50"></AstroIcon>
-<TailwindIcon class="w-50 h-50"></TailwindIcon>
-<GitIcon class="w-50 h-50"></GitIcon>
+<div class="justify-center">
+    <h2 class="mb-10 flex flex-row justify-center items-center">
+        <CodeIcon class="size-12"></CodeIcon>
+        <span class="text-6xl md:text-5xl ms-2 font-bold">Tecnologías</span>
+    </h2>
+    <div class="flex flex-row gap-10">
+        <PhpIcon class="size-50"></PhpIcon>
+        <SymfonyIcon class="size-50"></SymfonyIcon>
+        <MysqlIcon class="size-50"></MysqlIcon>
+        <VuejsIcon class="size-50"></VuejsIcon>
+        <AstroIcon class="size-50"></AstroIcon>
+        <TailwindIcon class="size-50"></TailwindIcon>
+        <GitIcon class="size-50"></GitIcon>
+    </div>
+</div>
