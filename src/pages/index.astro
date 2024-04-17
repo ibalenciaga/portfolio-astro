@@ -1,0 +1,52 @@
+---
+import '@fontsource-variable/onest';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Introduction from '../components/Introduction.astro';
+import Technologies from '../components/Technologies.astro';
+import SocialMedia from '../components/SocialMedia.astro';
+import Experience from '../components/Experience.astro';
+import Course from '../components/Course.astro';
+import About from '../components/About.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout 
+	title="Portfolio de Iñaki Balenciaga - Programador y desarrollador web"
+	description="Desarrollador web full stack en Donosti. Especializado en crear páginas web."
+>
+	<main class="text-center m-auto w-[1200px]">
+		<Header></Header>
+
+		<section class="mb-24 ps-10 pe-10">
+			<Introduction></Introduction>
+		</section>
+
+		<section class="flex gap-10 justify-center mb-36 ps-10 pe-10">
+			<SocialMedia></SocialMedia>
+		</section>
+
+		<section class="flex gap-20 justify-center mb-36 ps-10 pe-10">
+			<Technologies></Technologies>
+		</section>
+
+		<section id="experience" class="flex gap-20 justify-center mb-36 ps-10 pe-10">
+			<Experience></Experience>
+		</section>
+
+		<section id="courses" class="flex  gap-20 justify-center mb-36 ps-10 pe-10">
+			<Course></Course>
+			</section>
+
+		<section id="about" class="flex  gap-20 justify-center mb-36 ps-10 pe-10">
+			<About></About>
+		</section>
+		
+		<Footer></Footer>
+	</main>
+</Layout>
+
+<style>
+	
+</style>
