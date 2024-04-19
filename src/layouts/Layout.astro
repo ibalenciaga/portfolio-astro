@@ -12,17 +12,15 @@ const { title, description } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
+		<meta name="keywords" content="iñaki balenciaga bueno, ibalenciaga, portfolio, desarrollo web, backend, frontend, full stack, html5, css3, javascript, jquery, php, symfony, vuejs, astro, mysql, git, wordpress">
+		<meta name="author" content="Iñaki Balenciaga Bueno">
+		<meta name="robots" content="index" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		
-		<div class="relative h-full w-full bg-slate-950">
-			<div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-			<div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
-		</div>
 		<slot />
 	</body>
 </html>
@@ -33,6 +31,7 @@ const { title, description } = Astro.props;
 
 	body{
     	font-family: 'Onest Variable', sans-serif;
+		background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='32' height='32' patternTransform='scale(1) rotate(105)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 0%, 0%, 1)'/><path d='M37.657 10.343l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243m-20.686 0l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(231, 48%, 48%, 1)' fill='none'/><path d='M16-8v6m0 4v6m8-8h-6m-4 0H8m8 24v6m0 4v6m8-8h-6m-4 0H8'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='hsla(231, 48%, 48%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(-20,0)' fill='url(%23a)'/></svg>")
     }
 
 	main {
