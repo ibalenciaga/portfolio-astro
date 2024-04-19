@@ -1,8 +1,16 @@
-const EXPERIENCE = [
+interface IExperience {
+    date : string,
+    title: string,
+    description: string,
+    freelance?: string
+}
+
+const EXPERIENCE:IExperience[] = [
     {
         date: "2024",
         title: "Peña Hípica Donostiarra",
         description: "Crear una nueva plataforma para llevar la gestión de la sociedad gastronomica. Para el backend se ha creado una API REST con el framwork Symfony y para el frontend se ha utilizado el framwork VueJs.",
+        freelance: "freelance"
     },
     {
         date: "Septiembre 2022 - Diciembre 2023",
@@ -18,11 +26,13 @@ const EXPERIENCE = [
         date: "2020",
         title: "Peña Hípica Donostiarra",
         description: "Crear la página web de la sociedad gastronómica con php utilizando el framework Symfony.",
+        freelance: "freelance"
     },
     {
         date: "2019",
         title: "Ilargi Berdea",
         description: "Crear la página web de la asociación con wordpress.",
+        freelance: "freelance"
     },
     {
         date: "Junio 2019 - Marzo 2020",
@@ -33,6 +43,7 @@ const EXPERIENCE = [
         date: "2018",
         title: "Iparki",
         description: "Crear la página web de la empresa con wordpress.",
+        freelance: "freelance"
     },
     {
         date: "Octubre 2017 - Diciembre 2018",

@@ -1,4 +1,9 @@
-const COURSES = [
+interface ICourse {
+    date : string,
+    title: string,
+}
+
+const COURSES:ICourse[] = [
     {
         date: "2024",
         title: "PHP8",
