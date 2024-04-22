@@ -1,25 +1,24 @@
 ---
-import type { Code, Debug } from "astro:components"
 import ExperienceItem from '../components/ExperienceItem.astro';
-import BriefcaseIcon from "./icons/Briefcase.astro";
+import BriefcaseIcon from "./icons/BriefcaseIcon.astro";
 
 import {EXPERIENCE} from "../store/experienceStore.ts"
 
 ---
+<section id="experience" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
+    <div class="w-full justify-center lg:w-[800px]">
+        <h2 class="mb-10 flex flex-row justify-center items-center">
+            <span class="text-6xl md:text-5xl ms-2 font-bold">Experiencia</span> 
+        </h2>
+        <ol class="relative border-s border-gray-200 dark:border-gray-700">   
+            {
+                EXPERIENCE.map(experience => (
+                    <li class="ms-4 mb-32 sm:mb-10 text-left">
 
-<div class="w-full justify-center lg:w-[800px]">
-    <h2 class="mb-10 flex flex-row justify-center items-center">
-        <BriefcaseIcon class="size-12"></BriefcaseIcon>
-        <span class="text-6xl md:text-5xl ms-2 font-bold">Experiencia</span> 
-    </h2>
-    <ol class="relative border-s border-gray-200 dark:border-gray-700">   
-        {
-            EXPERIENCE.map(experience => (
-                <li class="ms-4 mb-32 sm:mb-10 text-left">
-
-                    <ExperienceItem  {... experience}></ExperienceItem>
-                </li> 
-            ))
-        }
-    </ol>
-</div>
+                        <ExperienceItem  {... experience}></ExperienceItem>
+                    </li> 
+                ))
+            }
+        </ol>
+    </div>
+</section>
