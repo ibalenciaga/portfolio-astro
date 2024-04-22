@@ -1,0 +1,72 @@
+---
+import ApiIcon from "../icons/ApiIcon.astro";
+import PhpIcon from "../icons/PhpIcon.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import CssIcon from "../icons/CssIcon.astro";
+import GitIcon from "../icons/GitIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import HtmlIcon from "../icons/HtmlIcon.astro";
+import JavascriptIcon from "../icons/JavascriptIcon.astro";
+import MysqlIcon from "../icons/MysqlIcon.astro";
+import SymfonyIcon from "../icons/SymfonyIcon.astro";
+import TailwindIcon from "../icons/TailwindIcon.astro";
+import VuejsIcon from "../icons/VuejsIcon.astro";
+import WordpressIcon from "../icons/WordpressIcon.astro";
+
+interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+
+let Icon;
+
+switch (title) {
+    case 'Api':
+        Icon = ApiIcon;
+        break;
+    case 'Php':
+        Icon = PhpIcon;
+        break;
+    case 'Astro':
+        Icon = AstroIcon;
+        break;    
+    case 'Css':
+        Icon = CssIcon;
+        break;
+    case 'Git':
+        Icon = GitIcon;
+        break;
+    case 'Github':
+        Icon = GithubIcon;
+        break;
+    case 'Html':
+        Icon = HtmlIcon;
+        break;
+    case 'Javascript':
+        Icon = JavascriptIcon;
+        break;
+    case 'Mysql':
+        Icon = MysqlIcon;
+        break;
+    case 'Symfony':
+        Icon = SymfonyIcon;
+        break;
+    case 'Tailwind':
+        Icon = TailwindIcon;
+        break;
+    case 'Vuejs':
+        Icon = VuejsIcon;
+        break;
+    case 'Wordpress':
+        Icon = WordpressIcon;
+        break;
+    default:
+
+    break;
+}
+
+---
+<div class="flex border-2 border-gray-700 max-w-fit px-2 py-1 rounded-2xl mb-2 items-center">
+    <span class="text-3xl md:text-xs me-2">{title}</span>
+    {Icon && <Icon class="size-12 md:size-6" />}
+</div>
