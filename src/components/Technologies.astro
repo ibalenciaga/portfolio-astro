@@ -1,32 +1,53 @@
 ---
-import CodeIcon from './icons/Code.astro';
-import AstroIcon from '../components/icons/Astro.astro';
-import GitIcon from '../components/icons/Git.astro';
-import MysqlIcon from '../components/icons/Mysql.astro';
-import PhpIcon from '../components/icons/Php.astro';
-import SymfonyIcon from '../components/icons/Symfony.astro';
-import TailwindIcon from '../components/icons/Tailwind.astro';
-import VuejsIcon from '../components/icons/Vuejs.astro';
-import Html5Icon from '../components/icons/Html5.astro';
-import Css3Icon from '../components/icons/Css3.astro';
-import JavascriptIcon from '../components/icons/Javascript.astro';
-
+import CodeIcon from './icons/CodeIcon.astro';
+import AstroIcon from './icons/AstroIcon.astro';
+import GitIcon from './icons/GitIcon.astro';
+import MysqlIcon from './icons/MysqlIcon.astro';
+import PhpIcon from './icons/PhpIcon.astro';
+import SymfonyIcon from './icons/SymfonyIcon.astro';
+import TailwindIcon from './icons/TailwindIcon.astro';
+import VuejsIcon from './icons/VuejsIcon.astro';
+import HtmlIcon from './icons/HtmlIcon.astro';
+import CssIcon from './icons/CssIcon.astro';
+import JavascriptIcon from './icons/JavascriptIcon.astro';
+import IconCard from './cards/IconCard.astro';
 ---
-<div class="justify-center">
-    <h2 class="mb-10 flex flex-row justify-center items-center">
-        <CodeIcon class="size-12"></CodeIcon>
-        <span class="text-6xl md:text-5xl ms-2 font-bold">Tecnologías</span>
-    </h2>
-    <div class="flex flex-row gap-10">
-        <PhpIcon class="size-50"></PhpIcon>
-        <SymfonyIcon class="size-50"></SymfonyIcon>
-        <MysqlIcon class="size-50"></MysqlIcon>
-        <Html5Icon class="size-50"></Html5Icon>
-        <Css3Icon class="size-50"></Css3Icon>
-        <JavascriptIcon class="size-50"></JavascriptIcon>
-        <VuejsIcon class="size-50"></VuejsIcon>
-        <AstroIcon class="size-50"></AstroIcon>
-        <TailwindIcon class="size-50"></TailwindIcon>
-        <GitIcon class="size-50"></GitIcon>
+<section class="flex gap-20 justify-center mb-36 ps-24 pe-24">
+    <div class="justify-center">
+        <h2 class="mb-10 flex flex-row justify-center items-center">
+            <span class="text-6xl md:text-5xl ms-2 font-bold">Tecnologías</span>
+        </h2>
+        <div class="flex flex-row flex-wrap justify-center gap-10 max-w-[600px]">
+            <IconCard title="PHP"> 
+                <PhpIcon slot="icon"/>
+            </IconCard>
+            <IconCard title="Symfony"> 
+                <SymfonyIcon name="icon"/>
+            </IconCard>
+            <IconCard title="MySql"> 
+                <MysqlIcon name="icon"/>
+            </IconCard>
+            <IconCard title="HTML5"> 
+                <HtmlIcon name="icon"/>
+            </IconCard>
+            <IconCard title="CSS3"> 
+                <CssIcon name="icon"/>
+            </IconCard>
+            <IconCard title="Javascript"> 
+                <JavascriptIcon name="icon"/>
+            </IconCard>
+            <IconCard title="VueJs"> 
+                <VuejsIcon name="icon"/>
+            </IconCard>
+            <IconCard title="Astro"> 
+                <AstroIcon name="icon"/>
+            </IconCard>
+            <IconCard title="Tailwind"> 
+                <TailwindIcon name="icon"/>
+            </IconCard>
+            <IconCard title="Git"> 
+                <GitIcon name="icon"/>
+            </IconCard>
+        </div>
     </div>
-</div>
+</section>
