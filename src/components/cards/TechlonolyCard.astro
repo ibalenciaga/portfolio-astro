@@ -19,46 +19,60 @@ interface Props {
 const { title } = Astro.props;
 
 let Icon;
+let iconClass:string = "";
 
 switch (title) {
     case 'Api':
         Icon = ApiIcon;
-        break;
-    case 'Php':
-        Icon = PhpIcon;
+        iconClass='bg-[#182d5a]';
         break;
     case 'Astro':
         Icon = AstroIcon;
+        iconClass='bg-[#1E1834]';
         break;    
     case 'Css':
         Icon = CssIcon;
+        iconClass='bg-[#112d42]';
         break;
     case 'Git':
         Icon = GitIcon;
+        iconClass='bg-sky-700';
         break;
     case 'Github':
         Icon = GithubIcon;
+        iconClass='bg-[#02040A]';
         break;
     case 'Html':
         Icon = HtmlIcon;
+        iconClass='bg-[481d13]';
         break;
     case 'Javascript':
         Icon = JavascriptIcon;
+        iconClass='bg-[3d3910]';
         break;
     case 'Mysql':
         Icon = MysqlIcon;
+        iconClass='bg-[#0a1a27]';
+        break;
+    case 'Php':
+        Icon = PhpIcon;
+        iconClass='bg-[#1b2343]';
         break;
     case 'Symfony':
         Icon = SymfonyIcon;
+        iconClass='bg-[#1F2937]';
         break;
     case 'Tailwind':
         Icon = TailwindIcon;
+        iconClass='bg-[#013159]';
         break;
     case 'Vuejs':
         Icon = VuejsIcon;
+        iconClass='bg-[#1A1A1A]';
         break;
     case 'Wordpress':
         Icon = WordpressIcon;
+        iconClass='bg-[#101517]';
         break;
     default:
 
@@ -66,7 +80,7 @@ switch (title) {
 }
 
 ---
-<span class="flex items-center rounded-full text-xs bg-gray-600 border border-gray-700 px-1 ">
-    {Icon && <Icon class="size-12 md:size-4 me-1" />}
+<span class={`flex items-center rounded-full text-xs ${iconClass} border border-gray-800 px-1`}>
+    {Icon && <Icon className="size-12 md:size-3.5 me-1" />}
     {title}
 </span>
