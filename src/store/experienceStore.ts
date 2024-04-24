@@ -5,6 +5,7 @@ interface IExperience {
     description: string;
     technologies: string[];
     freelance?: string;
+    show: string;
 }
 
 const EXPERIENCE:IExperience[] = [
@@ -23,7 +24,8 @@ const EXPERIENCE:IExperience[] = [
             "Tailwind",
             "Github"
         ],
-        freelance: "Freelance"
+        freelance: "Freelance",
+        show: "show"
     },
     {
         id:"e-007",
@@ -38,6 +40,7 @@ const EXPERIENCE:IExperience[] = [
             "Tailwind",
             "Github"
         ],
+        show: "show"
     },
     {
         id:"e-006",
@@ -50,6 +53,7 @@ const EXPERIENCE:IExperience[] = [
             "Mysql",
             "Github"
         ],
+        show: "show"
     },
     {
         id:"e-005",
@@ -63,6 +67,7 @@ const EXPERIENCE:IExperience[] = [
             "Mysql",
             "Github"
         ],
+        show: "show"
     },
     {
         id:"e-004",
@@ -73,7 +78,8 @@ const EXPERIENCE:IExperience[] = [
             "Php",
             "Wordpress",
         ],
-        freelance: "Freelance"
+        freelance: "Freelance",
+        show: "hide hidden"
     },
     {
         id:"e-003",
@@ -87,6 +93,7 @@ const EXPERIENCE:IExperience[] = [
             "Css",
             "Javascript"
         ],
+        show: "hide hidden"
     },
     {
         id:"e-002",
@@ -97,7 +104,8 @@ const EXPERIENCE:IExperience[] = [
             "Php",
             "Wordpress",
         ],
-        freelance: "Freelance"
+        freelance: "Freelance",
+        show: "hide hidden"
     },
     {
         id:"e-001",
@@ -110,6 +118,7 @@ const EXPERIENCE:IExperience[] = [
             "Mysql",
             "Github"
         ],
+        show: "hide hidden"
     }
 ]
 
