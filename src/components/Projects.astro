@@ -1,0 +1,65 @@
+---
+import TechlonolyCard from "./cards/TechlonolyCard.astro";
+import MoreInfo from "./icons/MoreInfo.astro";
+---
+
+<section id="experience" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
+    <div class="w-full justify-center lg:w-[800px]">
+        <h2 class="mb-10 flex flex-row justify-center items-center">
+            <span class="text-6xl md:text-5xl ms-2 font-bold">Proyectos</span> 
+        </h2><div class="flex flex-col gap-y-16">
+        <article class="flex flex-col space-x-0 items-start justify-start text-left space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+            <div class="w-full md:w-1/2">
+                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                    <img
+                    alt="Recién llegado vs 5 años en Nueva Zelanda"
+                    class="object-cover object-top w-full md:h-56 rounded-2xl transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                    loading="lazy"
+                    src="../../public/img/projects/elkartea-app.webp"
+                    />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold">
+                    Elkartea
+                </h3>
+                <div class="flex flex-wrap mt-2">
+                    <ul class="flex flex-wrap mb-2 gap-2">
+                        <li>
+                            <TechlonolyCard title="Php" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Symfony" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Api" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Vuejs" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Astro" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Tailwind" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Mysql" /> 
+                        </li>
+                        <li>
+                            <TechlonolyCard title="Github" /> 
+                        </li>
+                    </ul>
+                    <div class="mt-2 justify-start ">
+                        <p class="text-4xl md:text-base">Aplicación para la gestión de sociedades gastronómicas. Tiene la posibilidad de adminitrar la información de los socios, las resveras y consumiciones, ver el estado del almacén con el stock de productos y ver estadísticas con datos objectivos de la sociedad.</p>
+                    </div>
+                    <footer class="flex mt-4">
+                        <a href="https://elkartea.com" target="_blank" type="button" class="px-4 py-2 text-5xl md:text-sm font-medium bg-gray-600 border border-gray-600 rounded-lg hover:scale-110 transition focus:z-10 focus:ring-2 dark:bg-gray-600 dark:border-gray-60 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                            <span class="">+ info</span>
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
