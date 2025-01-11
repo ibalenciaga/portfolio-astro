@@ -10,6 +10,24 @@ interface IExperience {
 
 const EXPERIENCE:IExperience[] = [
     {
+        id:"e-009",
+        date: "Julio 2024 - Actualidad",
+        title: "Benio",
+        description: "<p class='text-4xl md:text-base mb-5'>Tenemos una <span class='text-sky-600 font-bold'>plataforma para mejorar el clima laboral de las empresas</span>. Me dedico a <span class='text-sky-600 font-bold'>programar los diferentes módulos</span> como el <span class='text-sky-600 font-bold'>envío de encuesta de clima</span> o el <span class='text-sky-600 font-bold'>módulo de competencias</span> que se pueden evaluar.</p><p class='text-4xl md:text-base mb-5'>Además <span class='text-sky-600 font-bold'>trato directamente con los clientes</span> para garantizar sus necesidades y resolver sus problemas.</p><p class='text-4xl md:text-base mb-5'>También hemos creado una <span class='text-sky-600 font-bold'>app para una tienda local</span> que vende todo tipo de productos de diferentes proveedores. Hemos <span class='text-sky-600 font-bold'>configurado la TPV, una báscula, lector de tickets e impresora de tickets</span>. Todos los pagos se realizan mediante tarjeta con lo que hemos tenido que crear la <span class='text-sky-600 font-bold'>pasarela de pago</span> correspondiente y configurarla para que los pagos les llegue a los diferentes proveedores.</p>",        technologies: [
+            "Api",
+            "Php",
+            "Nodejs",
+            "Mysql",
+            "MongoDB",
+            "Vuejs",
+            "Angularjs",
+            "Tailwind",
+            "Wordpress",
+            "Github"
+        ],
+        show: "show"
+    },
+    {
         id:"e-008",
         date: "Enero 2024 - Actualidad",
         title: "Peña Hípica Donostiarra",
@@ -67,7 +85,7 @@ const EXPERIENCE:IExperience[] = [
             "Mysql",
             "Github"
         ],
-        show: "show"
+        show: "hide hidden"
     },
     {
         id:"e-004",

@@ -12,6 +12,9 @@ import SymfonyIcon from "../icons/SymfonyIcon.astro";
 import TailwindIcon from "../icons/TailwindIcon.astro";
 import VuejsIcon from "../icons/VuejsIcon.astro";
 import WordpressIcon from "../icons/WordpressIcon.astro";
+import MongoDBIcon from "../icons/MongoDB.astro";
+import NodejsIcon from "../icons/Nodejs.astro";
+import AngularjsIcon from "../icons/AngularjsIcon.astro";
 
 interface Props {
 	title: string;
@@ -72,6 +75,18 @@ switch (title) {
         break;
     case 'Wordpress':
         Icon = WordpressIcon;
+        iconClass='bg-[#101517]';
+        break;
+    case 'MongoDB':
+        Icon = MongoDBIcon;
+        iconClass='bg-[#101517]';
+        break;
+    case 'Nodejs':
+        Icon = NodejsIcon;
+        iconClass='bg-[#101517]';
+        break;
+    case 'Angularjs':
+        Icon = AngularjsIcon;
         iconClass='bg-[#101517]';
         break;
     default:
