@@ -1,33 +1,35 @@
 ---
-import ExperienceItem from '../components/ExperienceItem.astro';
-import BriefcaseIcon from "./icons/BriefcaseIcon.astro";
+import ExperienceItem from '../components/ExperienceItem.astro'
+import BriefcaseIcon from './icons/BriefcaseIcon.astro'
 
-import {EXPERIENCE} from "../store/experienceStore.ts"
+import { EXPERIENCE } from '../store/experienceStore.ts'
 ---
+
 <section id="experience" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
     <div class="w-full justify-center lg:w-[800px]">
         <h2 class="mb-10 flex flex-row justify-center items-center">
-            <span class="text-6xl md:text-5xl ms-2 font-bold">Experiencia</span> 
+            <span class="text-6xl md:text-5xl ms-2 font-bold">Experiencia</span>
         </h2>
-        <ol class="relative border-s border-gray-200 ">   
+        <ol class="relative border-s border-gray-200">
             {
-                EXPERIENCE.map(experience => (
+                EXPERIENCE.map((experience) => (
                     <li class={`ms-4 mb-32 sm:mb-10 text-left transition ${experience?.show}`}>
-                        <ExperienceItem  {... experience}></ExperienceItem>
-                    </li> 
+                        <ExperienceItem {...experience} />
+                    </li>
                 ))
             }
         </ol>
-        {
-            
-        }
-        <button id="showMoreButton" class="bg-sky-600 border-spacing-5 p-1 rounded-md text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition">Ver más</button>
-        
+        {}
+        <button
+            id="showMoreButton"
+            class="bg-sky-600 border-spacing-5 p-1 rounded-md text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition"
+            >Ver más</button
+        >
     </div>
 </section>
 
 <script type="module">
-    import { toggleExperiences } from '../../public/functions.js';
+    import { toggleExperiences } from '../../public/functions.js'
 
     document.querySelector('#showMoreButton').addEventListener('click', toggleExperiences)
 </script>

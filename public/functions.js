@@ -1,16 +1,16 @@
 const toggleExperiences = () => {
-    const elements = document.querySelectorAll('.hide');
-    const showMoreButton = document.getElementById('showMoreButton');
+    const elements = document.querySelectorAll('.hide')
+    const showMoreButton = document.getElementById('showMoreButton')
 
-    if (!showMoreButton) return;
+    if (!showMoreButton) return
 
-    elements.forEach(element => {
-        element.classList.toggle('hidden');
-    });
+    elements.forEach((element) => {
+        element.classList.toggle('hidden')
+    })
 
-    const hiddenElements = document.querySelectorAll('.hidden');
+    const hiddenElements = document.querySelectorAll('.hidden')
 
-    showMoreButton.textContent = hiddenElements.length > 0 ? 'Ver más' : 'Ver menos';
-};
+    showMoreButton.textContent = hiddenElements.length > 0 ? 'Ver más' : 'Ver menos'
+}
 
-export { toggleExperiences };
+export { toggleExperiences }

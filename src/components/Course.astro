@@ -1,20 +1,17 @@
 ---
-import CourseItem from '../components/CourseItem.astro';
-import CourseIcon from "./icons/CourseIcon.astro";
+import CourseItem from '../components/CourseItem.astro'
+import CourseIcon from './icons/CourseIcon.astro'
 
-import { COURSES } from "../store/courseStore";
+import { COURSES } from '../store/courseStore'
 ---
-<section id="courses" class="flex  gap-20 justify-center mb-36 ps-24 pe-24">
+
+<section id="courses" class="flex gap-20 justify-center mb-36 ps-24 pe-24">
     <div class="justify-center">
         <h2 class="mb-10 flex flex-row justify-center items-center">
             <span class="text-6xl md:text-5xl ms-2 font-bold">Cursos</span>
         </h2>
         <div class="flex flex-wrap gap-5 justify-center">
-            {
-                COURSES.map(course => (
-                <CourseItem  {... course}></CourseItem>
-                ))
-            }
+            {COURSES.map((course) => <CourseItem {...course} />)}
         </div>
     </div>
 </section>

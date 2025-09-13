@@ -1,100 +1,99 @@
 ---
-import ApiIcon from "../icons/ApiIcon.astro";
-import PhpIcon from "../icons/PhpIcon.astro";
-import AstroIcon from "../icons/AstroIcon.astro";
-import CssIcon from "../icons/CssIcon.astro";
-import GitIcon from "../icons/GitIcon.astro";
-import GithubIcon from "../icons/GithubIcon.astro";
-import HtmlIcon from "../icons/HtmlIcon.astro";
-import JavascriptIcon from "../icons/JavascriptIcon.astro";
-import MysqlIcon from "../icons/MysqlIcon.astro";
-import SymfonyIcon from "../icons/SymfonyIcon.astro";
-import TailwindIcon from "../icons/TailwindIcon.astro";
-import VuejsIcon from "../icons/VuejsIcon.astro";
-import WordpressIcon from "../icons/WordpressIcon.astro";
-import MongoDBIcon from "../icons/MongoDB.astro";
-import NodejsIcon from "../icons/Nodejs.astro";
-import AngularjsIcon from "../icons/AngularjsIcon.astro";
+import ApiIcon from '../icons/ApiIcon.astro'
+import PhpIcon from '../icons/PhpIcon.astro'
+import AstroIcon from '../icons/AstroIcon.astro'
+import CssIcon from '../icons/CssIcon.astro'
+import GitIcon from '../icons/GitIcon.astro'
+import GithubIcon from '../icons/GithubIcon.astro'
+import HtmlIcon from '../icons/HtmlIcon.astro'
+import JavascriptIcon from '../icons/JavascriptIcon.astro'
+import MysqlIcon from '../icons/MysqlIcon.astro'
+import SymfonyIcon from '../icons/SymfonyIcon.astro'
+import TailwindIcon from '../icons/TailwindIcon.astro'
+import VuejsIcon from '../icons/VuejsIcon.astro'
+import WordpressIcon from '../icons/WordpressIcon.astro'
+import MongoDBIcon from '../icons/MongoDB.astro'
+import NodejsIcon from '../icons/Nodejs.astro'
+import AngularjsIcon from '../icons/AngularjsIcon.astro'
 
 interface Props {
-	title: string;
+    title: string
 }
-const { title } = Astro.props;
+const { title } = Astro.props
 
-let Icon;
-let iconClass:string = "";
+let Icon
+let iconClass: string = ''
 
 switch (title) {
     case 'Api':
-        Icon = ApiIcon;
-        iconClass='bg-[#182d5a]';
-        break;
+        Icon = ApiIcon
+        iconClass = 'bg-[#182d5a]'
+        break
     case 'Astro':
-        Icon = AstroIcon;
-        iconClass='bg-[#1E1834]';
-        break;    
+        Icon = AstroIcon
+        iconClass = 'bg-[#1E1834]'
+        break
     case 'Css':
-        Icon = CssIcon;
-        iconClass='bg-[#112d42]';
-        break;
+        Icon = CssIcon
+        iconClass = 'bg-[#112d42]'
+        break
     case 'Git':
-        Icon = GitIcon;
-        iconClass='bg-sky-700';
-        break;
+        Icon = GitIcon
+        iconClass = 'bg-sky-700'
+        break
     case 'Github':
-        Icon = GithubIcon;
-        iconClass='bg-[#02040A]';
-        break;
+        Icon = GithubIcon
+        iconClass = 'bg-[#02040A]'
+        break
     case 'Html':
-        Icon = HtmlIcon;
-        iconClass='bg-[481d13]';
-        break;
+        Icon = HtmlIcon
+        iconClass = 'bg-[481d13]'
+        break
     case 'Javascript':
-        Icon = JavascriptIcon;
-        iconClass='bg-[3d3910]';
-        break;
+        Icon = JavascriptIcon
+        iconClass = 'bg-[3d3910]'
+        break
     case 'Mysql':
-        Icon = MysqlIcon;
-        iconClass='bg-[#0a1a27]';
-        break;
+        Icon = MysqlIcon
+        iconClass = 'bg-[#0a1a27]'
+        break
     case 'Php':
-        Icon = PhpIcon;
-        iconClass='bg-[#1b2343]';
-        break;
+        Icon = PhpIcon
+        iconClass = 'bg-[#1b2343]'
+        break
     case 'Symfony':
-        Icon = SymfonyIcon;
-        iconClass='bg-[#1F2937]';
-        break;
+        Icon = SymfonyIcon
+        iconClass = 'bg-[#1F2937]'
+        break
     case 'Tailwind':
-        Icon = TailwindIcon;
-        iconClass='bg-[#013159]';
-        break;
+        Icon = TailwindIcon
+        iconClass = 'bg-[#013159]'
+        break
     case 'Vuejs':
-        Icon = VuejsIcon;
-        iconClass='bg-[#1A1A1A]';
-        break;
+        Icon = VuejsIcon
+        iconClass = 'bg-[#1A1A1A]'
+        break
     case 'Wordpress':
-        Icon = WordpressIcon;
-        iconClass='bg-[#101517]';
-        break;
+        Icon = WordpressIcon
+        iconClass = 'bg-[#101517]'
+        break
     case 'MongoDB':
-        Icon = MongoDBIcon;
-        iconClass='bg-[#101517]';
-        break;
+        Icon = MongoDBIcon
+        iconClass = 'bg-[#101517]'
+        break
     case 'Nodejs':
-        Icon = NodejsIcon;
-        iconClass='bg-[#101517]';
-        break;
+        Icon = NodejsIcon
+        iconClass = 'bg-[#101517]'
+        break
     case 'Angularjs':
-        Icon = AngularjsIcon;
-        iconClass='bg-[#101517]';
-        break;
+        Icon = AngularjsIcon
+        iconClass = 'bg-[#101517]'
+        break
     default:
-
-    break;
+        break
 }
-
 ---
+
 <span class={`flex items-center rounded-full text-xs ${iconClass} border border-gray-800 px-1`}>
     {Icon && <Icon className="size-12 md:size-3.5 me-1" />}
     {title}

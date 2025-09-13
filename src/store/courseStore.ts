@@ -1,32 +1,32 @@
 interface ICourse {
-    date : string,
-    title: string,
+    date: string
+    title: string
 }
 
-const COURSES:ICourse[] = [
+const COURSES: ICourse[] = [
     {
-        date: "2024",
-        title: "PHP8",
+        date: '2024',
+        title: 'PHP8',
     },
     {
-        date: "2024",
-        title: "CQRS",
+        date: '2024',
+        title: 'CQRS',
     },
     {
-        date: "2024",
-        title: "Arquitectura Hexagonal",
+        date: '2024',
+        title: 'Arquitectura Hexagonal',
     },
     {
-        date: "2023",
-        title: "Symfony 7",
+        date: '2023',
+        title: 'Symfony 7',
     },
     {
-        date: "2022",
-        title: "DDD"
+        date: '2022',
+        title: 'DDD',
     },
     {
-        date: "2022",
-        title: " Microservicios"
+        date: '2022',
+        title: ' Microservicios',
     },
     /*
     {
@@ -35,8 +35,8 @@ const COURSES:ICourse[] = [
     },
     */
     {
-        date: "2022",
-        title: "Principios SOLID",
+        date: '2022',
+        title: 'Principios SOLID',
     },
     /*
     {
@@ -49,8 +49,8 @@ const COURSES:ICourse[] = [
     },
      */
     {
-        date: "2020",
-        title: "Docker"
+        date: '2020',
+        title: 'Docker',
     },
     /*
     {
@@ -68,4 +68,4 @@ const COURSES:ICourse[] = [
     */
 ]
 
-export {COURSES};
+export { COURSES }
