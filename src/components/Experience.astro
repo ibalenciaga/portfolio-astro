@@ -7,27 +7,30 @@ import { EXPERIENCE } from '../store/experienceStore.ts'
 
 <section id="experience" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
     <div class="w-full justify-center lg:w-[800px]">
-        <h2 class="mb-10 flex flex-row justify-start items-center font-mono bg-[#1e1e1e] p-4 border-l-4 border-[#007acc]">
+        <h2
+            class="mb-10 flex flex-row justify-start items-center font-mono bg-[#1e1e1e] p-4 border-l-4 border-[#007acc]"
+        >
             <span class="text-[#c586c0] text-5xl md:text-2xl mr-2">function</span>
             <span class="text-[#dcdcaa] text-6xl md:text-3xl font-bold">getExperience</span>
             <span class="text-[#d4d4d4] text-5xl md:text-2xl">()</span>
-            <span class="text-[#d4d4d4] text-5xl md:text-2xl ml-2">{</span>
+            <span class="text-[#d4d4d4] text-5xl md:text-2xl ml-2">{} </span>
+            <ol class="relative border-s-2 border-[#007acc]/50 ml-8">
+                {
+                    EXPERIENCE.map((experience) => (
+                        <li class={`ms-4 mb-32 sm:mb-10 text-left transition ${experience?.show}`}>
+                            <ExperienceItem {...experience} />
+                        </li>
+                    ))
+                }
+            </ol>
+            {}
+            <div class="font-mono text-[#d4d4d4] text-5xl md:text-2xl mb-4 ml-8"></div>
         </h2>
-        <ol class="relative border-s-2 border-[#007acc]/50 ml-8">
-            {
-                EXPERIENCE.map((experience) => (
-                    <li class={`ms-4 mb-32 sm:mb-10 text-left transition ${experience?.show}`}>
-                        <ExperienceItem {...experience} />
-                    </li>
-                ))
-            }
-        </ol>
-        {}
-        <div class="font-mono text-[#d4d4d4] text-5xl md:text-2xl mb-4 ml-8">}</div>
         <button
             id="showMoreButton"
             class="bg-[#0e639c] text-white font-mono font-semibold px-6 py-3 text-5xl md:text-sm hover:bg-[#1177bb] transition-all duration-300 border-none ml-8"
-            ><span class="text-[#c586c0]">return</span> <span class="text-[#dcdcaa]">more</span><span class="text-[#d4d4d4]">()</span>;</button
+            ><span class="text-[#c586c0]">return</span>
+            <span class="text-[#dcdcaa]">more</span><span class="text-[#d4d4d4]">()</span>;</button
         >
     </div>
 </section>
