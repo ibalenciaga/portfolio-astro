@@ -2,7 +2,7 @@
 import AboutIcon from './icons/AboutIcon.astro'
 ---
 
-<section id="about" class="flex gap-20 justify-center mb-36 ps-24 pe-24">
+<section id="about" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
     <div class="justify-center">
         <h2
             class="mb-10 flex flex-row justify-start items-center font-mono bg-[#1e1e1e] p-4 border-l-4 border-[#4ec9b0]"
@@ -10,42 +10,42 @@ import AboutIcon from './icons/AboutIcon.astro'
             <span class="text-[#858585] text-5xl md:text-2xl mr-3">#</span>
             <span class="text-6xl md:text-3xl font-bold text-[#4ec9b0]">README.md</span>
         </h2>
-        <article class="flex flex-col items-center justify-center gap-8 md:flex-row">
-            <div class="lg:max-w-[600px]">
-                <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
-                    ¡Hola! Soy un <span class="text-[#4ec9b0] font-bold">**desarrollador**</span> de páginas web <span
-                        class="text-[#4ec9b0] font-bold">**full stack**</span
-                    > con 5 años de experiencia.
-                </p>
-                <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
-                    Mi experiencia en el desarrollo frontend me permite crear tanto páginas utilizando tecnologías como <span
-                        class="text-[#4ec9b0] font-bold">**HTML, CSS y JavaScript**</span
-                    >, junto con frameworks modernos como <span class="text-[#4ec9b0] font-bold"
-                        >**Vue.js y Astro**</span
-                    >.
-                </p>
-                <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
-                    Por otro lado, en el desarrollo backend, tengo experiencia en la construcción de <span
-                        class="text-[#4ec9b0] font-bold">**API REST**</span
-                    >, la manipulación de bases de datos y la implementación de lógica de negocio utilizando tecnologías
-                    como <span class="text-[#4ec9b0] font-bold">**PHP**</span> con frameworks como <span
-                        class="text-[#4ec9b0] font-bold">**Symfony**</span
-                    > o <span class="text-[#4ec9b0] font-bold">**Codeigniter**</span>.
-                </p>
-                <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] font-mono">
-                    Además de mis habilidades técnicas, también he trabajado como <span class="text-[#4ec9b0] font-bold"
-                        >**freelance**</span
-                    >, lo que me ha brindado la oportunidad de colaborar con una variedad de clientes y proyectos,
-                    adaptándome a diferentes requerimientos y necesidades.
-                </p>
-            </div>
-            <div class="flex flex-col">
-                <img
-                    src="../../public/img/foto-perfil.webp"
-                    alt="Iñaki Balenciaga"
-                    class="mt-8 md:m0 order-1 object-cover w-86 md:w-64 h-full md:order-2 lg:w-64 aspect-square border-2 border-[#007acc] bg-[#252526] shadow-lg"
-                />
-            </div>
-        </article>
+        <div class="flex flex-col gap-y-16 ml-8">
+            <article class="flex flex-col items-center justify-center gap-8 md:flex-row">
+                <div class="w-full lg:max-w-full">
+                    <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
+                        ¡Hola! Soy un <span class="text-[#4ec9b0] font-bold">**desarrollador**</span> de páginas web <span
+                            class="text-[#4ec9b0] font-bold">**full stack**</span
+                        > con 5 años de experiencia.
+                    </p>
+                    <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
+                        Mi experiencia en el desarrollo frontend me permite crear tanto páginas utilizando tecnologías
+                        como <span class="text-[#4ec9b0] font-bold">**HTML, CSS y JavaScript**</span>, junto con
+                        frameworks modernos como <span class="text-[#4ec9b0] font-bold">**Vue.js y Astro**</span>.
+                    </p>
+                    <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] mb-4 font-mono">
+                        Por otro lado, en el desarrollo backend, tengo experiencia en la construcción de <span
+                            class="text-[#4ec9b0] font-bold">**API REST**</span
+                        >, la manipulación de bases de datos y la implementación de lógica de negocio utilizando
+                        tecnologías como <span class="text-[#4ec9b0] font-bold">**PHP**</span> con frameworks como <span
+                            class="text-[#4ec9b0] font-bold">**Symfony**</span
+                        > o <span class="text-[#4ec9b0] font-bold">**Codeigniter**</span>.
+                    </p>
+                    <p class="text-4xl md:text-base font-normal text-left text-[#d4d4d4] font-mono">
+                        Además de mis habilidades técnicas, también he trabajado como <span
+                            class="text-[#4ec9b0] font-bold">**freelance**</span
+                        >, lo que me ha brindado la oportunidad de colaborar con una variedad de clientes y proyectos,
+                        adaptándome a diferentes requerimientos y necesidades.
+                    </p>
+                </div>
+                <div class="flex flex-col">
+                    <img
+                        src="../../public/img/foto-perfil.webp"
+                        alt="Iñaki Balenciaga"
+                        class="mt-8 md:m0 order-1 object-cover w-86 md:w-64 h-full md:order-2 lg:w-64 aspect-square border-2 border-[#007acc] bg-[#252526] shadow-lg"
+                    />
+                </div>
+            </article>
+        </div>
     </div>
 </section>
