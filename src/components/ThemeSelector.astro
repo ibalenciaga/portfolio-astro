@@ -225,13 +225,13 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
         }
 
         // Navigation links (preservar la navegación del header original)
-        document.querySelectorAll('header nav a').forEach((link, index) => {
-            if (index < 3) {
-                // Links de navegación normales
-                link.className = `${theme.styles.navLink} text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition`
+        document.querySelectorAll('header nav a').forEach((link) => {
+            // Si el tema no define clases específicas, usar las clases base
+            const baseClasses = 'text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition'
+            if (theme.styles.navLink) {
+                link.className = `${theme.styles.navLink} ${baseClasses}`
             } else {
-                // Botón de email
-                link.className = `${theme.styles.contactButton} text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition`
+                link.className = baseClasses
             }
         })
 
@@ -305,14 +305,25 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
             tag.className = `tag flex items-center rounded-full text-xs border px-1 ${bgClass || theme.styles.tagBg} ${theme.styles.tagText} transition`
         })
 
-        // Experience and Project buttons
-        document.querySelectorAll('.experience-button, .project-button').forEach((btn) => {
-            btn.className = `px-4 py-2 text-5xl md:text-sm font-medium rounded-lg transition ${theme.styles.experienceButton}`
+        // Experience button
+        document.querySelectorAll('.experience-button').forEach((btn) => {
+            btn.className = `border-spacing-5 p-1 rounded-md text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition ${theme.styles.experienceButton}`
+        })
+
+        // Project buttons
+        document.querySelectorAll('.project-button').forEach((btn) => {
+            btn.className = `px-4 py-2 text-5xl md:text-sm font-medium border rounded-lg focus:z-10 focus:ring-2 transition ${theme.styles.projectButton}`
         })
 
         // Social media buttons
-        document.querySelectorAll('.social-button').forEach((btn) => {
-            btn.className = `social-button inline-flex items-center px-4 py-2 text-5xl md:text-sm font-medium border rounded-s-lg rounded-e-lg transition ${theme.styles.socialButton}`
+        document.querySelectorAll('.social-button').forEach((btn, index) => {
+            const roundedClass =
+                index === 0
+                    ? 'rounded-s-lg'
+                    : index === document.querySelectorAll('.social-button').length - 1
+                      ? 'rounded-e-lg'
+                      : ''
+            btn.className = `social-button inline-flex items-center px-4 py-2 text-5xl md:text-sm font-medium border ${roundedClass} hover:scale-110 transition focus:z-10 focus:ring-2 ${theme.styles.socialButton}`
         })
     }
 
