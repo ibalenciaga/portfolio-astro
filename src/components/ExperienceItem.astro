@@ -3,10 +3,19 @@ const { date, title, description, technologies, freelance } = Astro.props
 import TechlonolyCard from './cards/TechlonolyCard.astro'
 ---
 
-<div class="absolute w-5 h-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-1.5 -start-2.5 border-4 border-white shadow-lg"></div>
-<article class="md:flex md:flex-row bg-white/40 backdrop-blur-lg border border-white/50 p-6 rounded-2xl hover:bg-white/50 hover:shadow-2xl transition-all duration-300 mb-8">
+<div
+    class="absolute w-5 h-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-1.5 -start-2.5 border-4 border-white shadow-lg"
+>
+</div>
+<article
+    class="md:flex md:flex-row bg-white/40 backdrop-blur-lg border border-white/50 p-6 rounded-2xl hover:bg-white/50 hover:shadow-2xl transition-all duration-300 mb-8"
+>
     <div class="md:flex md:flex-col min-w-[300px] mb-5 ps-2">
-        <h3 class="text-5xl md:text-xl mt-10 mb-5 md:m-0 font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">{title}</h3>
+        <h3
+            class="text-5xl md:text-xl mt-10 mb-5 md:m-0 font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+        >
+            {title}
+        </h3>
         <time class="text-3xl md:text-sm mb-5 md:mb-0 md:m-0 font-medium leading-none text-gray-600">{date}</time>
         <p class="text-4xl md:text-base mb-5 md:m-0 font-semibold text-purple-600">{freelance}</p>
         <div class="flex flex-wrap gap-5 md:gap-2 mt-1">
