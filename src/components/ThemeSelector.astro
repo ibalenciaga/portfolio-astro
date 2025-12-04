@@ -1,0 +1,323 @@
+---
+import { themes, DEFAULT_THEME_ID } from '../config/themes'
+---
+
+<div class="relative theme-selector-wrapper">
+    <button
+        id="theme-selector-button"
+        class="flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300"
+        aria-label="Selector de tema"
+    >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            ></path>
+        </svg>
+        <span id="current-theme-name" class="font-medium">Tema</span>
+        <svg
+            class="w-4 h-4 transition-transform duration-200"
+            id="dropdown-arrow"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </button>
+
+    <div
+        id="theme-selector-dropdown"
+        class="absolute right-0 mt-2 w-80 rounded-lg shadow-2xl backdrop-blur-lg overflow-hidden z-50 hidden"
+        style="max-height: 500px; overflow-y: auto;"
+    >
+        {
+            themes.map((theme) => (
+                <button
+                    class="theme-option w-full text-left px-4 py-3 transition-all duration-200 border-b border-opacity-20 hover:bg-opacity-20 hover:scale-[1.02] active:scale-[0.98]"
+                    data-theme-id={theme.id}
+                    data-theme-name={theme.name}
+                >
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full border-2 flex items-center justify-center theme-preview"
+                                data-theme-id={theme.id}
+                            >
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-semibold text-sm">{theme.name}</h3>
+                            <p class="text-xs opacity-80 mt-1">{theme.description}</p>
+                        </div>
+                    </div>
+                </button>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .theme-selector-wrapper {
+        user-select: none;
+    }
+
+    #theme-selector-dropdown {
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+    }
+
+    #theme-selector-dropdown.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+
+    #dropdown-arrow.rotate {
+        transform: rotate(180deg);
+    }
+
+    .theme-option {
+        cursor: pointer;
+    }
+
+    .theme-option.active {
+        position: relative;
+    }
+
+    .theme-option.active::before {
+        content: '✓';
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    /* Scrollbar personalizado */
+    #theme-selector-dropdown::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #theme-selector-dropdown::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    #theme-selector-dropdown::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    #theme-selector-dropdown::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+<script>
+    import { themes, getThemeById, DEFAULT_THEME_ID } from '../config/themes'
+
+    const THEME_STORAGE_KEY = 'portfolio-theme'
+
+    // Obtener tema guardado o usar el predeterminado
+    function getSavedTheme(): string {
+        if (typeof window === 'undefined') return DEFAULT_THEME_ID
+        return localStorage.getItem(THEME_STORAGE_KEY) || DEFAULT_THEME_ID
+    }
+
+    // Guardar tema en localStorage
+    function saveTheme(themeId: string) {
+        if (typeof window === 'undefined') return
+        localStorage.setItem(THEME_STORAGE_KEY, themeId)
+    }
+
+	// Aplicar tema al documento
+	function applyTheme(themeId: string) {
+		const theme = getThemeById(themeId)
+		if (!theme) return
+
+		const root = document.documentElement
+
+		// Aplicar estilos como atributos de datos
+		root.setAttribute('data-theme', themeId)
+
+		// Aplicar variables CSS personalizadas para los estilos
+		Object.entries(theme.styles).forEach(([key, value]) => {
+			root.style.setProperty(`--theme-${key}`, value)
+		})
+
+		// Actualizar clases del body
+		document.body.className = theme.styles.bodyBg + ' ' + theme.styles.bodyText
+
+		// Aplicar fuentes
+		document.body.style.fontFamily = theme.styles.fontFamily
+
+		// Actualizar todas las secciones y componentes
+		updateComponents(theme)
+
+		// Actualizar el nombre del tema en el botón
+		const currentThemeNameEl = document.getElementById('current-theme-name')
+		if (currentThemeNameEl) {
+			currentThemeNameEl.textContent = theme.name
+		}
+
+		// Actualizar estilos del botón y dropdown del selector
+		updateThemeSelectorStyles(theme)
+
+		// Marcar opción activa
+		document.querySelectorAll('.theme-option').forEach((option) => {
+			const optionEl = option as HTMLElement
+			if (optionEl.dataset.themeId === themeId) {
+				optionEl.classList.add('active')
+			} else {
+				optionEl.classList.remove('active')
+			}
+		})
+	}
+
+	// Actualizar estilos del selector de temas
+	function updateThemeSelectorStyles(theme: any) {
+		const button = document.getElementById('theme-selector-button')
+		const dropdown = document.getElementById('theme-selector-dropdown')
+
+		if (button) {
+			// Extraer clases base del contactButton y aplicarlas al botón del selector
+			button.className = `flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${theme.styles.contactButton}`
+		}
+
+		if (dropdown) {
+			// Aplicar background y estilos al dropdown
+			dropdown.style.backgroundColor = theme.styles.bodyBg.includes('gradient')
+				? 'rgba(0, 0, 0, 0.8)'
+				: theme.styles.bodyBg.replace('bg-', '')
+			dropdown.style.backdropFilter = 'blur(12px)'
+		}
+
+		// Actualizar estilos de las opciones del dropdown
+		document.querySelectorAll('.theme-option').forEach((option) => {
+			const optionEl = option as HTMLElement
+			optionEl.style.color = theme.styles.bodyText.replace('text-', '')
+			optionEl.style.borderColor = theme.styles.headerBorder.replace('border-', '')
+		})
+	}    // Actualizar componentes con las clases del tema
+    function updateComponents(theme: any) {
+        // Header
+        const header = document.querySelector('header')
+        if (header) {
+            header.className = `fixed top-0 z-20 w-full mx-auto mt-2 ${theme.styles.headerBg} border-b ${theme.styles.headerBorder}`
+        }
+
+        // Navigation links
+        document.querySelectorAll('nav a').forEach((link) => {
+            link.className = `${theme.styles.navLink} transition`
+        })
+
+        // Buttons de contacto en header
+        document.querySelectorAll('header a[href*="mailto"]').forEach((btn) => {
+            btn.className = `${theme.styles.contactButton} px-4 py-2 rounded-lg transition`
+        })
+
+        // Sections
+        document.querySelectorAll('section').forEach((section) => {
+            if (section.id === 'intro') {
+                section.className = `w-full mx-auto lg:w-[740px] ${theme.styles.introBg} py-16`
+            }
+        })
+
+        // Titles
+        document.querySelectorAll('h2').forEach((title) => {
+            const section = title.closest('section')?.id
+            if (section === 'experiencia') {
+                title.className = `text-3xl font-bold mb-6 ${theme.styles.experienceTitle}`
+            } else if (section === 'proyectos') {
+                title.className = `text-3xl font-bold mb-6 ${theme.styles.projectTitle}`
+            } else if (section === 'sobre-mi') {
+                title.className = `text-3xl font-bold mb-6 ${theme.styles.aboutTitle}`
+            }
+        })
+
+        // Experience items
+        document.querySelectorAll('.experience-item').forEach((item) => {
+            item.className = `experience-item ${theme.styles.experienceItemBg} p-6 rounded-lg border ${theme.styles.experienceItemBorder} ${theme.styles.experienceItemHover} transition`
+        })
+
+        // Project cards
+        document.querySelectorAll('.project-card').forEach((card) => {
+            card.className = `project-card ${theme.styles.projectCardBg} rounded-lg border ${theme.styles.projectCardBorder} ${theme.styles.projectCardHover} p-6 transition`
+        })
+
+        // Tags
+        document.querySelectorAll('.tag').forEach((tag) => {
+            tag.className = `tag px-3 py-1 rounded-full text-sm border ${theme.styles.tagBg} ${theme.styles.tagBorder} ${theme.styles.tagText} ${theme.styles.tagHover} transition`
+        })
+
+        // Buttons +info y Ver proyecto
+        document.querySelectorAll('.project-button, .experience-button').forEach((btn) => {
+            btn.className = `${theme.styles.experienceButton} px-6 py-2 rounded-lg transition`
+        })
+
+        // Social media buttons
+        document.querySelectorAll('.social-button').forEach((btn) => {
+            btn.className = `social-button ${theme.styles.socialButton} p-3 rounded-lg border transition`
+        })
+    }
+
+    // Inicializar tema al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = getSavedTheme()
+        applyTheme(savedTheme)
+
+        // Toggle dropdown
+        const button = document.getElementById('theme-selector-button')
+        const dropdown = document.getElementById('theme-selector-dropdown')
+        const arrow = document.getElementById('dropdown-arrow')
+
+        button?.addEventListener('click', () => {
+            dropdown?.classList.toggle('show')
+            dropdown?.classList.toggle('hidden')
+            arrow?.classList.toggle('rotate')
+        })
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement
+            if (!target.closest('.theme-selector-wrapper')) {
+                dropdown?.classList.remove('show')
+                dropdown?.classList.add('hidden')
+                arrow?.classList.remove('rotate')
+            }
+        })
+
+        // Cambiar tema al hacer click en una opción
+        document.querySelectorAll('.theme-option').forEach((option) => {
+            option.addEventListener('click', () => {
+                const themeId = (option as HTMLElement).dataset.themeId
+                if (themeId) {
+                    applyTheme(themeId)
+                    saveTheme(themeId)
+                    dropdown?.classList.remove('show')
+                    dropdown?.classList.add('hidden')
+                    arrow?.classList.remove('rotate')
+                }
+            })
+        })
+    })
+
+    // Aplicar tema inmediatamente (antes de que cargue el DOM) para evitar flash
+    if (typeof window !== 'undefined') {
+        const savedTheme = getSavedTheme()
+        const theme = getThemeById(savedTheme)
+        if (theme) {
+            document.documentElement.setAttribute('data-theme', savedTheme)
+        }
+    }
+</script>

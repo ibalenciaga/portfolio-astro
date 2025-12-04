@@ -1,4 +1,8 @@
-<header class="flex justify-center items-center mb-36 sticky top-6 bg-opacity-0 z-10">
+---
+import ThemeSelector from './ThemeSelector.astro'
+---
+
+<header class="flex justify-between items-center mb-36 sticky top-6 bg-opacity-0 z-10 px-4 max-w-7xl mx-auto w-full">
     <nav class="flex flex-row gap-x-6 bg-sky-600 border-spacing-5 p-1 rounded-md">
         <a href="#experience" class="text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition">Experiencia</a>
         <a href="#projects" class="text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition">Proyectos</a>
@@ -8,6 +12,7 @@
             class="text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition">Enviar email</a
         >
     </nav>
+    <ThemeSelector />
 </header>
 
 <style></style>
