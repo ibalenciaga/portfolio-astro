@@ -36,25 +36,26 @@ const { title, description } = Astro.props
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+    <body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
         <slot />
     </body>
 </html>
 <style is:global>
     :root {
-        color-scheme: ligth dark;
+        color-scheme: light dark;
     }
     html {
         scroll-behavior: smooth;
     }
     body {
         font-family: 'Onest Variable', sans-serif;
+        color: #1a1a1a;
     }
     main {
         margin: auto;
-        padding: 1rem;
+        padding: 2rem 1rem;
         font-size: 20px;
-        line-height: 1.6;
+        line-height: 1.8;
         text-align: center;
         justify-content: center;
         align-items: center;
