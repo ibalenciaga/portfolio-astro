@@ -215,7 +215,13 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
         // Header
         const header = document.querySelector('header')
         if (header) {
-            header.className = `flex justify-between items-center mb-36 sticky top-6 z-10 px-4 max-w-7xl mx-auto w-full ${theme.styles.headerBg}`
+            header.className = `flex justify-between items-center mb-36 sticky top-6 z-10 px-4 max-w-7xl mx-auto w-full bg-opacity-0`
+        }
+
+        // Navigation container
+        const nav = document.querySelector('header nav')
+        if (nav) {
+            nav.className = `flex flex-row gap-x-6 border-spacing-5 p-1 rounded-md ${theme.styles.headerBg}`
         }
 
         // Navigation links (preservar la navegación del header original)
@@ -250,7 +256,10 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
 
         // Experience section
         document.querySelectorAll('.experience-title').forEach((title) => {
-            title.className = `experience-title mb-10 flex flex-row justify-center items-center ${theme.styles.experienceTitle}`
+            const span = title.querySelector('span')
+            if (span) {
+                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.experienceTitle}`
+            }
         })
 
         document.querySelectorAll('.experience-border').forEach((border) => {
@@ -264,7 +273,10 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
 
         // Projects section
         document.querySelectorAll('.project-title').forEach((title) => {
-            title.className = `project-title mb-10 flex flex-row justify-center items-center ${theme.styles.projectTitle}`
+            const span = title.querySelector('span')
+            if (span) {
+                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.projectTitle}`
+            }
         })
 
         document.querySelectorAll('.project-card').forEach((card) => {
@@ -273,7 +285,10 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
 
         // About section
         document.querySelectorAll('.about-title').forEach((title) => {
-            title.className = `about-title mb-10 flex flex-row justify-center items-center ${theme.styles.aboutTitle}`
+            const span = title.querySelector('span')
+            if (span) {
+                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.aboutTitle}`
+            }
         })
 
         document.querySelectorAll('.about-text').forEach((text) => {
