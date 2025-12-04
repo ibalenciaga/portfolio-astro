@@ -140,134 +140,164 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
         localStorage.setItem(THEME_STORAGE_KEY, themeId)
     }
 
-	// Aplicar tema al documento
-	function applyTheme(themeId: string) {
-		const theme = getThemeById(themeId)
-		if (!theme) return
+    // Aplicar tema al documento
+    function applyTheme(themeId: string) {
+        const theme = getThemeById(themeId)
+        if (!theme) return
 
-		const root = document.documentElement
+        const root = document.documentElement
 
-		// Aplicar estilos como atributos de datos
-		root.setAttribute('data-theme', themeId)
+        // Aplicar estilos como atributos de datos
+        root.setAttribute('data-theme', themeId)
 
-		// Aplicar variables CSS personalizadas para los estilos
-		Object.entries(theme.styles).forEach(([key, value]) => {
-			root.style.setProperty(`--theme-${key}`, value)
-		})
+        // Aplicar variables CSS personalizadas para los estilos
+        Object.entries(theme.styles).forEach(([key, value]) => {
+            root.style.setProperty(`--theme-${key}`, value)
+        })
 
-		// Actualizar clases del body
-		document.body.className = theme.styles.bodyBg + ' ' + theme.styles.bodyText
+        // Actualizar clases del body
+        document.body.className = theme.styles.bodyBg + ' ' + theme.styles.bodyText
 
-		// Aplicar fuentes
-		document.body.style.fontFamily = theme.styles.fontFamily
+        // Aplicar fuentes
+        document.body.style.fontFamily = theme.styles.fontFamily
 
-		// Actualizar todas las secciones y componentes
-		updateComponents(theme)
+        // Actualizar todas las secciones y componentes
+        updateComponents(theme)
 
-		// Actualizar el nombre del tema en el botón
-		const currentThemeNameEl = document.getElementById('current-theme-name')
-		if (currentThemeNameEl) {
-			currentThemeNameEl.textContent = theme.name
-		}
+        // Actualizar el nombre del tema en el botón
+        const currentThemeNameEl = document.getElementById('current-theme-name')
+        if (currentThemeNameEl) {
+            currentThemeNameEl.textContent = theme.name
+        }
 
-		// Actualizar estilos del botón y dropdown del selector
-		updateThemeSelectorStyles(theme)
+        // Actualizar estilos del botón y dropdown del selector
+        updateThemeSelectorStyles(theme)
 
-		// Marcar opción activa
-		document.querySelectorAll('.theme-option').forEach((option) => {
-			const optionEl = option as HTMLElement
-			if (optionEl.dataset.themeId === themeId) {
-				optionEl.classList.add('active')
-			} else {
-				optionEl.classList.remove('active')
-			}
-		})
-	}
+        // Marcar opción activa
+        document.querySelectorAll('.theme-option').forEach((option) => {
+            const optionEl = option as HTMLElement
+            if (optionEl.dataset.themeId === themeId) {
+                optionEl.classList.add('active')
+            } else {
+                optionEl.classList.remove('active')
+            }
+        })
+    }
 
-	// Actualizar estilos del selector de temas
-	function updateThemeSelectorStyles(theme: any) {
-		const button = document.getElementById('theme-selector-button')
-		const dropdown = document.getElementById('theme-selector-dropdown')
+    // Actualizar estilos del selector de temas
+    function updateThemeSelectorStyles(theme: any) {
+        const button = document.getElementById('theme-selector-button')
+        const dropdown = document.getElementById('theme-selector-dropdown')
 
-		if (button) {
-			// Extraer clases base del contactButton y aplicarlas al botón del selector
-			button.className = `flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${theme.styles.contactButton}`
-		}
+        if (button) {
+            // Extraer clases base del contactButton y aplicarlas al botón del selector
+            button.className = `flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${theme.styles.contactButton}`
+        }
 
-		if (dropdown) {
-			// Aplicar background y estilos al dropdown
-			dropdown.style.backgroundColor = theme.styles.bodyBg.includes('gradient')
-				? 'rgba(0, 0, 0, 0.8)'
-				: theme.styles.bodyBg.replace('bg-', '')
-			dropdown.style.backdropFilter = 'blur(12px)'
-		}
+        if (dropdown) {
+            // Aplicar background y estilos al dropdown
+            dropdown.style.backgroundColor = theme.styles.bodyBg.includes('gradient')
+                ? 'rgba(0, 0, 0, 0.8)'
+                : theme.styles.bodyBg.replace('bg-', '')
+            dropdown.style.backdropFilter = 'blur(12px)'
+        }
 
-		// Actualizar estilos de las opciones del dropdown
-		document.querySelectorAll('.theme-option').forEach((option) => {
-			const optionEl = option as HTMLElement
-			optionEl.style.color = theme.styles.bodyText.replace('text-', '')
-			optionEl.style.borderColor = theme.styles.headerBorder.replace('border-', '')
-		})
-	}    // Actualizar componentes con las clases del tema
+        // Actualizar estilos de las opciones del dropdown
+        document.querySelectorAll('.theme-option').forEach((option) => {
+            const optionEl = option as HTMLElement
+            optionEl.style.color = theme.styles.bodyText.replace('text-', '')
+            optionEl.style.borderColor = theme.styles.headerBorder.replace('border-', '')
+        })
+    }
+
+    // Actualizar componentes con las clases del tema
     function updateComponents(theme: any) {
         // Header
         const header = document.querySelector('header')
         if (header) {
-            header.className = `fixed top-0 z-20 w-full mx-auto mt-2 ${theme.styles.headerBg} border-b ${theme.styles.headerBorder}`
+            header.className = `flex justify-between items-center mb-36 sticky top-6 z-10 px-4 max-w-7xl mx-auto w-full ${theme.styles.headerBg}`
         }
 
-        // Navigation links
-        document.querySelectorAll('nav a').forEach((link) => {
-            link.className = `${theme.styles.navLink} transition`
-        })
-
-        // Buttons de contacto en header
-        document.querySelectorAll('header a[href*="mailto"]').forEach((btn) => {
-            btn.className = `${theme.styles.contactButton} px-4 py-2 rounded-lg transition`
-        })
-
-        // Sections
-        document.querySelectorAll('section').forEach((section) => {
-            if (section.id === 'intro') {
-                section.className = `w-full mx-auto lg:w-[740px] ${theme.styles.introBg} py-16`
+        // Navigation links (preservar la navegación del header original)
+        document.querySelectorAll('header nav a').forEach((link, index) => {
+            if (index < 3) {
+                // Links de navegación normales
+                link.className = `${theme.styles.navLink} text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition`
+            } else {
+                // Botón de email
+                link.className = `${theme.styles.contactButton} text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition`
             }
         })
 
-        // Titles
-        document.querySelectorAll('h2').forEach((title) => {
-            const section = title.closest('section')?.id
-            if (section === 'experiencia') {
-                title.className = `text-3xl font-bold mb-6 ${theme.styles.experienceTitle}`
-            } else if (section === 'proyectos') {
-                title.className = `text-3xl font-bold mb-6 ${theme.styles.projectTitle}`
-            } else if (section === 'sobre-mi') {
-                title.className = `text-3xl font-bold mb-6 ${theme.styles.aboutTitle}`
-            }
+        // Introduction section
+        const introSection = document.querySelector('#intro')
+        if (introSection) {
+            introSection.className = `mb-36 ps-24 pe-24 ${theme.styles.introBg}`
+        }
+
+        // Introduction text elements
+        document.querySelectorAll('.intro-text').forEach((el) => {
+            el.className = `intro-text text-4xl md:text-5xl mb-5 ${theme.styles.introText}`
         })
 
-        // Experience items
+        document.querySelectorAll('.intro-name').forEach((el) => {
+            el.className = `intro-name text-7xl md:text-6xl font-bold ${theme.styles.introNameColor}`
+        })
+
+        document.querySelectorAll('.intro-role').forEach((el) => {
+            el.className = `intro-role text-5xl md:text-3xl d-block font-bold mb-6 flex justify-center flex-row gap-2 ${theme.styles.introRoleColor}`
+        })
+
+        // Experience section
+        document.querySelectorAll('.experience-title').forEach((title) => {
+            title.className = `experience-title mb-10 flex flex-row justify-center items-center ${theme.styles.experienceTitle}`
+        })
+
+        document.querySelectorAll('.experience-border').forEach((border) => {
+            border.className = `experience-border relative border-s ${theme.styles.experienceBorder}`
+        })
+
         document.querySelectorAll('.experience-item').forEach((item) => {
-            item.className = `experience-item ${theme.styles.experienceItemBg} p-6 rounded-lg border ${theme.styles.experienceItemBorder} ${theme.styles.experienceItemHover} transition`
+            const showClass = item.getAttribute('data-show') || ''
+            item.className = `experience-item ms-4 mb-32 sm:mb-10 text-left transition ${showClass}`
         })
 
-        // Project cards
+        // Projects section
+        document.querySelectorAll('.project-title').forEach((title) => {
+            title.className = `project-title mb-10 flex flex-row justify-center items-center ${theme.styles.projectTitle}`
+        })
+
         document.querySelectorAll('.project-card').forEach((card) => {
-            card.className = `project-card ${theme.styles.projectCardBg} rounded-lg border ${theme.styles.projectCardBorder} ${theme.styles.projectCardHover} p-6 transition`
+            card.className = `project-card flex flex-col space-x-0 items-start justify-start text-left space-y-8 group md:flex-row md:space-x-8 md:space-y-0`
         })
 
-        // Tags
+        // About section
+        document.querySelectorAll('.about-title').forEach((title) => {
+            title.className = `about-title mb-10 flex flex-row justify-center items-center ${theme.styles.aboutTitle}`
+        })
+
+        document.querySelectorAll('.about-text').forEach((text) => {
+            text.className = `about-text text-4xl md:text-base font-normal text-left ${theme.styles.aboutText}`
+        })
+
+        document.querySelectorAll('.about-highlight').forEach((highlight) => {
+            highlight.className = `about-highlight font-bold ${theme.styles.aboutHighlight}`
+        })
+
+        // Tags - preservar background específico de cada tecnología
         document.querySelectorAll('.tag').forEach((tag) => {
-            tag.className = `tag px-3 py-1 rounded-full text-sm border ${theme.styles.tagBg} ${theme.styles.tagBorder} ${theme.styles.tagText} ${theme.styles.tagHover} transition`
+            const bgClass = Array.from(tag.classList).find((cls) => cls.startsWith('bg-['))
+            tag.className = `tag flex items-center rounded-full text-xs border px-1 ${bgClass || theme.styles.tagBg} ${theme.styles.tagText} transition`
         })
 
-        // Buttons +info y Ver proyecto
-        document.querySelectorAll('.project-button, .experience-button').forEach((btn) => {
-            btn.className = `${theme.styles.experienceButton} px-6 py-2 rounded-lg transition`
+        // Experience and Project buttons
+        document.querySelectorAll('.experience-button, .project-button').forEach((btn) => {
+            btn.className = `px-4 py-2 text-5xl md:text-sm font-medium rounded-lg transition ${theme.styles.experienceButton}`
         })
 
         // Social media buttons
         document.querySelectorAll('.social-button').forEach((btn) => {
-            btn.className = `social-button ${theme.styles.socialButton} p-3 rounded-lg border transition`
+            btn.className = `social-button inline-flex items-center px-4 py-2 text-5xl md:text-sm font-medium border rounded-s-lg rounded-e-lg transition ${theme.styles.socialButton}`
         })
     }
 
