@@ -94,7 +94,7 @@ switch (title) {
 }
 ---
 
-<span class={`flex items-center rounded-full text-xs ${iconClass} border border-gray-800 px-1`}>
+<span class={`flex items-center rounded-full text-xs font-medium ${iconClass} bg-white/50 backdrop-blur-sm border-2 border-white/60 px-2 py-1 hover:bg-white/70 hover:shadow-lg transition-all duration-300`}>
     {Icon && <Icon className="size-12 md:size-3.5 me-1" />}
-    {title}
+    <span class="text-gray-800">{title}</span>
 </span>

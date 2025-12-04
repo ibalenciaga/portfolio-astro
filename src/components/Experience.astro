@@ -8,9 +8,9 @@ import { EXPERIENCE } from '../store/experienceStore.ts'
 <section id="experience" class="flex gap-20 justify-center mb-24 ps-24 pe-24">
     <div class="w-full justify-center lg:w-[800px]">
         <h2 class="mb-10 flex flex-row justify-center items-center">
-            <span class="text-6xl md:text-5xl ms-2 font-bold">Experiencia</span>
+            <span class="text-6xl md:text-5xl ms-2 font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Experiencia</span>
         </h2>
-        <ol class="relative border-s border-gray-200">
+        <ol class="relative border-s-4 border-purple-300/50">
             {
                 EXPERIENCE.map((experience) => (
                     <li class={`ms-4 mb-32 sm:mb-10 text-left transition ${experience?.show}`}>
@@ -22,7 +22,7 @@ import { EXPERIENCE } from '../store/experienceStore.ts'
         {}
         <button
             id="showMoreButton"
-            class="bg-sky-600 border-spacing-5 p-1 rounded-md text-5xl md:text-sm py-2 px-4 font-bold hover:scale-110 transition"
+            class="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-8 py-3 rounded-2xl text-5xl md:text-sm hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
             >Ver más</button
         >
     </div>
