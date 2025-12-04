@@ -155,8 +155,9 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
             root.style.setProperty(`--theme-${key}`, value)
         })
 
-        // Actualizar clases del body
-        document.body.className = theme.styles.bodyBg + ' ' + theme.styles.bodyText
+        // Actualizar clases del body (filtrar valores vacíos)
+        const bodyClasses = [theme.styles.bodyBg, theme.styles.bodyText].filter(Boolean).join(' ')
+        document.body.className = bodyClasses
 
         // Aplicar fuentes
         document.body.style.fontFamily = theme.styles.fontFamily
@@ -243,22 +244,42 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
 
         // Introduction text elements
         document.querySelectorAll('.intro-text').forEach((el) => {
-            el.className = `intro-text text-4xl md:text-5xl mb-5 ${theme.styles.introText}`
+            const classes = ['intro-text', 'text-4xl', 'md:text-5xl', 'mb-5', theme.styles.introText].filter(Boolean)
+            el.className = classes.join(' ')
         })
 
         document.querySelectorAll('.intro-name').forEach((el) => {
-            el.className = `intro-name text-7xl md:text-6xl font-bold ${theme.styles.introNameColor}`
+            const classes = ['intro-name', 'text-7xl', 'md:text-6xl', 'font-bold', theme.styles.introNameColor].filter(
+                Boolean
+            )
+            el.className = classes.join(' ')
         })
 
         document.querySelectorAll('.intro-role').forEach((el) => {
-            el.className = `intro-role text-5xl md:text-3xl d-block font-bold mb-6 flex justify-center flex-row gap-2 ${theme.styles.introRoleColor}`
+            const classes = [
+                'intro-role',
+                'text-5xl',
+                'md:text-3xl',
+                'd-block',
+                'font-bold',
+                'mb-6',
+                'flex',
+                'justify-center',
+                'flex-row',
+                'gap-2',
+                theme.styles.introRoleColor,
+            ].filter(Boolean)
+            el.className = classes.join(' ')
         })
 
         // Experience section
         document.querySelectorAll('.experience-title').forEach((title) => {
             const span = title.querySelector('span')
             if (span) {
-                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.experienceTitle}`
+                const classes = ['text-6xl', 'md:text-5xl', 'ms-2', 'font-bold', theme.styles.experienceTitle].filter(
+                    Boolean
+                )
+                span.className = classes.join(' ')
             }
         })
 
@@ -275,7 +296,10 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
         document.querySelectorAll('.project-title').forEach((title) => {
             const span = title.querySelector('span')
             if (span) {
-                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.projectTitle}`
+                const classes = ['text-6xl', 'md:text-5xl', 'ms-2', 'font-bold', theme.styles.projectTitle].filter(
+                    Boolean
+                )
+                span.className = classes.join(' ')
             }
         })
 
@@ -287,16 +311,28 @@ import { themes, DEFAULT_THEME_ID } from '../config/themes'
         document.querySelectorAll('.about-title').forEach((title) => {
             const span = title.querySelector('span')
             if (span) {
-                span.className = `text-6xl md:text-5xl ms-2 font-bold ${theme.styles.aboutTitle}`
+                const classes = ['text-6xl', 'md:text-5xl', 'ms-2', 'font-bold', theme.styles.aboutTitle].filter(
+                    Boolean
+                )
+                span.className = classes.join(' ')
             }
         })
 
         document.querySelectorAll('.about-text').forEach((text) => {
-            text.className = `about-text text-4xl md:text-base font-normal text-left ${theme.styles.aboutText}`
+            const classes = [
+                'about-text',
+                'text-4xl',
+                'md:text-base',
+                'font-normal',
+                'text-left',
+                theme.styles.aboutText,
+            ].filter(Boolean)
+            text.className = classes.join(' ')
         })
 
         document.querySelectorAll('.about-highlight').forEach((highlight) => {
-            highlight.className = `about-highlight font-bold ${theme.styles.aboutHighlight}`
+            const classes = ['about-highlight', 'font-bold', theme.styles.aboutHighlight].filter(Boolean)
+            highlight.className = classes.join(' ')
         })
 
         // Tags - preservar background específico de cada tecnología
