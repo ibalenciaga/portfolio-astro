@@ -61,7 +61,7 @@ export const themes: Theme[] = [
 		description: 'Diseño original del portfolio',
 		styles: {
 			bodyBg: 'bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]',
-			bodyText: '',
+			bodyText: 'text-white',
 			headerBg: 'bg-sky-600',
 			headerText: 'text-white',
 			headerBorder: 'border-sky-700',
