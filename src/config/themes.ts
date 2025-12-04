@@ -106,7 +106,7 @@ export const themes: Theme[] = [
 		name: 'Modern Minimalist',
 		description: 'Diseño minimalista y limpio con mucho espacio en blanco',
 		styles: {
-			bodyBg: 'bg-white',
+			bodyBg: 'bg-gradient-to-br from-gray-50 via-white to-gray-100',
 			bodyText: 'text-black',
 			headerBg: 'bg-white/80 backdrop-blur-sm',
 			headerText: 'text-black',
@@ -152,7 +152,7 @@ export const themes: Theme[] = [
 		name: 'Dark Neon',
 		description: 'Estilo cyberpunk con efectos neon y fondo oscuro',
 		styles: {
-			bodyBg: 'bg-gray-900',
+			bodyBg: 'bg-gray-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(0,0,0,0))]',
 			bodyText: 'text-gray-100',
 			headerBg: 'bg-gray-900/90 backdrop-blur-sm',
 			headerText: 'text-cyan-400',
@@ -194,11 +194,11 @@ export const themes: Theme[] = [
 		},
 	},
 	{
-		id: 'gradient-glassmorphism',
+	id: 'gradient-glassmorphism',
 		name: 'Gradient Glassmorphism',
 		description: 'Gradientes coloridos con efectos de vidrio esmerilado',
 		styles: {
-			bodyBg: 'bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400',
+			bodyBg: 'bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100',
 			bodyText: 'text-white',
 			headerBg: 'bg-white/10 backdrop-blur-lg',
 			headerText: 'text-white',
@@ -290,7 +290,7 @@ export const themes: Theme[] = [
 		name: 'Holographic Tech',
 		description: 'Efectos holográficos futuristas con gradientes iridiscentes',
 		styles: {
-			bodyBg: 'bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950',
+			bodyBg: 'bg-gradient-to-br from-indigo-950 via-purple-900 to-black',
 			bodyText: 'text-gray-100',
 			headerBg: 'bg-slate-900/40 backdrop-blur-xl',
 			headerText: 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400',
@@ -382,7 +382,7 @@ export const themes: Theme[] = [
 		name: 'Blueprint Tech',
 		description: 'Estilo de planos técnicos con líneas y medidas',
 		styles: {
-			bodyBg: 'bg-blue-950',
+			bodyBg: 'bg-[#0a1929]',
 			bodyText: 'text-blue-100',
 			headerBg: 'bg-blue-900/50',
 			headerText: 'text-blue-200',
