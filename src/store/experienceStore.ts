@@ -10,22 +10,8 @@ interface IExperience {
 
 const EXPERIENCE: IExperience[] = [
     {
-        id: 'e-010',
-        date: 'Abril 2025 - Actualidad',
-        title: 'Portfolio Paulaguti',
-        description:
-            "<p class='text-4xl md:text-base mb-5'>Es el <span class='text-sky-600 font-bold'>portfolio profesional de Paulaguti, ilustradora y streamer</span> galardonada con el premio a streamer del año 2025 en los Valencia Golden Awards. La web sirve como <span class='text-sky-600 font-bold'>escaparate digital de su trabajo artístico</span> y punto de contacto para potenciales clientes.</p><p class='text-4xl md:text-base mb-5'>El proyecto incluye una <span class='text-sky-600 font-bold'>galería visual</span> donde se muestran sus ilustraciones, un <span class='text-sky-600 font-bold'>apartado de biografía</span> contando su trayectoria como artista y creadora de contenido, y una <span class='text-sky-600 font-bold'>sección de preguntas frecuentes</span> con toda la información sobre cómo funcionan los encargos personalizados. Los clientes pueden <span class='text-sky-600 font-bold'>solicitar trabajos a través de enlaces directos a su correo e Instagram</span>. También integra <span class='text-sky-600 font-bold'>enlaces a todas sus redes sociales</span> para facilitar el seguimiento de su trabajo.</p>",
-        technologies: [
-            'Astro',
-            'Tailwind',
-            'Github',
-        ],
-        freelance: 'Freelance',
-        show: 'show',
-    },
-    {
         id: 'e-009',
-        date: 'Julio 2024 - Febrero 2025',
+        date: 'Julio 2024 - Actualidad',
         title: 'Benio',
         description:
             "<p class='text-4xl md:text-base mb-5'>Tenemos una <span class='text-sky-600 font-bold'>plataforma para mejorar el clima laboral de las empresas</span>. Me dedico a <span class='text-sky-600 font-bold'>programar los diferentes módulos</span> como el <span class='text-sky-600 font-bold'>envío de encuesta de clima</span> o el <span class='text-sky-600 font-bold'>módulo de competencias</span> que se pueden evaluar.</p><p class='text-4xl md:text-base mb-5'>Además <span class='text-sky-600 font-bold'>trato directamente con los clientes</span> para garantizar sus necesidades y resolver sus problemas.</p><p class='text-4xl md:text-base mb-5'>También hemos creado una <span class='text-sky-600 font-bold'>app para una tienda local</span> que vende todo tipo de productos de diferentes proveedores. Hemos <span class='text-sky-600 font-bold'>configurado la TPV, una báscula, lector de tickets e impresora de tickets</span>. Todos los pagos se realizan mediante tarjeta con lo que hemos tenido que crear la <span class='text-sky-600 font-bold'>pasarela de pago</span> correspondiente y configurarla para que los pagos les llegue a los diferentes proveedores.</p>",
